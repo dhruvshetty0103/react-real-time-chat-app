@@ -24,7 +24,7 @@ const io = socketIO(server, {
 
 var users = new Users();
 
-app.use(express.static(path.resolve(__dirname, "../frontend/build")));
+app.use(express.static(path.resolve(__dirname, "../Frontend/app/build")));
 
 io.on('connection', (socket) => {
 
