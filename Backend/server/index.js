@@ -2,7 +2,6 @@ const path = require('path');
 const express = require('express');
 const http = require('http');
 const socketIO = require('socket.io');
-const cors=require("cors");
 
 const { generateMessage, generateLocationMessage } = require('./utils/message.js');
 const { isRealString } = require('./utils/validation');
@@ -14,14 +13,7 @@ const app = express();
 const server = http.createServer(app);
 app.use(express.static(publicPath));
 
-app.use(cors());
-const io = socketIO(server, {
-  cors: {
-      origin: "http://localhost:3000",
-      mehtods: ["GET", "POST"],
-  },
-}) ;
-
+var io = socketIO(server);
 var users = new Users();
 
 io.on('connection', (socket) => {
