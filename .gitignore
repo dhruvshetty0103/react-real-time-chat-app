@@ -1,2 +1,3 @@
 node_modules
 /Frontend/app/node_modules
+package-lock.json
